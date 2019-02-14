@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import {Sort} from '@angular/material';
+import {Component, OnInit} from '@angular/core';
+import {MatTableModule, MatSortModule, MatSortHeader, Sort} from '@angular/material';
 
-export interface Container{
-   door_num         :   number;
-   container_num    :   string;
-   drayage          :   string;
-   LFD_Chasis       :   string;
-   LFD_Container    :   string;
-   Container_status :   string;
+export interface Container {
+  door_num: number;
+  container_num: string;
+  drayage: string;
+  LFD_Chasis: string;
+  LFD_Container: string;
+  Container_status: string;
 }
 
 @Component({
@@ -107,37 +107,44 @@ export class ConatinerDataTableComponent {
       LFD_Container: '2019-02-25',
       Container_status: 'Empty'
     },
-   ];
+  ];
 
-  sortedData:  Container[];
+  sortedData: Container[];
 
   constructor() {
-      this.sortedData = this.containers.slice();
+    this.sortedData = this.containers.slice();
   }
 
-  sortData( sort: Sort ){
-    const  data = this.containers.slice();
-    if ( !sort.active || sort.direction === ''){
+  sortData(sort: Sort) {
+    const data = this.containers.slice();
+    if (!sort.active || sort.direction === '') {
       this.sortedData = data;
       return;
     }
 
-    this.sortedData  = data.sort( (a,b) => {
-        const  isAsc = sort.direction === 'asc';
+    this.sortedData = data.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
 
-        switch( sort.active) {
-          case  'door_num':  return compare( a.door_num, b.door_num, isAsc);
-          case  'container_num':  return compare( a.container_num, b.container_num, isAsc);
-          case  'drayage':  return compare( a.drayage, b.drayage, isAsc);
-          case  'LFD_Chasis':  return compare( a.LFD_Chasis, b.LFD_Chasis, isAsc);
-          case  'LFD_Container':  return compare( a.LFD_Container, b.LFD_Container, isAsc);
-          case  'Container_status':  return compare( a.Container_status, b.Container_status, isAsc);
-          default:  return 0;
-        }
+      switch (sort.active) {
+        case  'door_num':
+          return compare(a.door_num, b.door_num, isAsc);
+        case  'container_num':
+          return compare(a.container_num, b.container_num, isAsc);
+        case  'drayage':
+          return compare(a.drayage, b.drayage, isAsc);
+        case  'LFD_Chasis':
+          return compare(a.LFD_Chasis, b.LFD_Chasis, isAsc);
+        case  'LFD_Container':
+          return compare(a.LFD_Container, b.LFD_Container, isAsc);
+        case  'Container_status':
+          return compare(a.Container_status, b.Container_status, isAsc);
+        default:
+          return 0;
+      }
     });
   }
 }
 
-   function compare(a: number | string, b: number | string, isAsc: boolean) {
-        return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+function compare(a: number | string, b: number | string, isAsc: boolean) {
+  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }
