@@ -1,4 +1,21 @@
-.mat-sort-header-container {
-  align-items: center;
-  width: 20px;
+mat-sort-header {
+  align-items: left;
+  width: 1000500000  px;
+  border-color: #96c93d;
+  border-width: thick;
+}
+
+table {
+  width: 100%;
+  border: #1b81d7;
+  table-layout: inherit;
+  table-layout: auto;
+  border-width: thin;
+  border-style: hidden;
+  color-interpolation: linearRGB;
+}
+
+th{
+  alignment: left;
+
 }

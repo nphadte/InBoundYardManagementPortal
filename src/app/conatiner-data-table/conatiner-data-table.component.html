@@ -1,11 +1,11 @@
-<table   matSort  (matSortChange)="sortData($event)">
-  <tr>
-    <th mat-sort-header="door_num" id="door_num"> GATE #     </th>
-    <th mat-sort-header="container_num">CONTAINER #</th>
-    <th mat-sort-header="drayage"> DRAYAGE  </th>
-    <th mat-sort-header="LFD_Chasis"> CHASIS  LFD </th>
-    <th mat-sort-header="LFD_Container"> CONTAINER  LFD </th>
-    <th mat-sort-header="Container_status"> STATUS </th>
+<table  matSort  (matSortChange)="sortData($event)">
+  <tr  bgcolor=#daa520  >
+    <th align="left"   mat-sort-header="door_num" id="door_num"> GATE #  </th>
+    <th align="left" mat-sort-header="container_num">CONTAINER #</th>
+    <th align="left" mat-sort-header="drayage"> DRAYAGE  </th>
+    <th align="left" mat-sort-header="LFD_Chasis"> CHASIS  LFD </th>
+    <th align="left" mat-sort-header="LFD_Container"> CONTAINER  LFD </th>
+    <th align="left"  mat-sort-header="Container_status"> STATUS </th>
   </tr>
 
   <tr *ngFor="let container of  sortedData ">
@@ -17,3 +17,4 @@
     <td>{{container.Container_status}}</td>
   </tr>
 </table>
+

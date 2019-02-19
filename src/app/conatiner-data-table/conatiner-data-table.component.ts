@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MatTableModule, MatSortModule, MatSortHeader, Sort} from '@angular/material';
+import {MatTableModule, MatSortModule, MatSortHeader, MatPaginator,  Sort} from '@angular/material';
 
 export interface Container {
   door_num: number;
