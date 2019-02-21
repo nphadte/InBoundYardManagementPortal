@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ContainerEntry} from '../domain/containerentry';
 import {ContainerService} from '../services/container.service';
 
