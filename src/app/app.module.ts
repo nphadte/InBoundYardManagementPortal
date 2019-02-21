@@ -10,6 +10,7 @@ import { ConatinerDataTableComponent } from './conatiner-data-table/conatiner-da
 import { TableDemoComponent } from './table-demo/table-demo.component';
 import { ContainerentrytableComponent } from './containerentrytable/containerentrytable.component';
 import { ContainerentryformComponent } from './containerentryform/containerentryform.component';
+import { ContainerbackendtableComponent } from './containerbackendtable/containerbackendtable.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ContainerentryformComponent } from './containerentryform/containerentry
     ConatinerDataTableComponent,
     TableDemoComponent,
     ContainerentrytableComponent,
-    ContainerentryformComponent
+    ContainerentryformComponent,
+    ContainerbackendtableComponent
   ],
   imports: [
     BrowserModule,
