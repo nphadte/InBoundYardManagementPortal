@@ -16,4 +16,8 @@ export class ContainerService {
       .then(res => <ContainerEntry[]>res.data)
       .then(data => { return data; });
   }
+
+  getDBContainers(){
+
+  }
 }

@@ -14,8 +14,6 @@ export interface  ContainerEntry{
 
   DRAYAGE;
 
-  SKD_COUNT;
-
   CARRIER_NAME;
 
   LFD_CONTAINER;
