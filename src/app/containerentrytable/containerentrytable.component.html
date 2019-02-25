@@ -1,18 +1,18 @@
 <p-table  [columns]="cols"  [value]="ContainerEntries"  [autoLayout]="true"  [paginator]="true" rows="2" sortField="WH_CHECKED_IN_DATETIME">
   <ng-template   pTemplate="header"  let-columns>
-      <tr>
-        <th *ngFor="let col of columns" [pSortableColumn]="col.field">
-          {{col.header}}
-          <p-sortIcon [field]="col.field"></p-sortIcon>
-        </th>
-      </tr>
+    <tr>
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+        {{col.header}}
+        <p-sortIcon [field]="col.field"></p-sortIcon>
+      </th>
+    </tr>
   </ng-template>
   <ng-template   pTemplate="body"  let-ContainerEntries  let-columns="columns">
-      <tr>
-          <td *ngFor="let col of columns">
-            {{ContainerEntries[col.field]}}
-          </td>
-      </tr>
+    <tr>
+      <td *ngFor="let col of columns">
+        {{ContainerEntries[col.field]}}
+      </td>
+    </tr>
   </ng-template>
 </p-table>
 

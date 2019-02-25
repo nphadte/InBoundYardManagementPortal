@@ -1,8 +1,12 @@
 export interface  ContainerEntry{
 
+  ID;
+
   CONTAINER_IDENTIFIER;
 
-  WAREHOUSE_LOC;
+  CONTAINER_LOC;
+
+  WAREHOUS_LOC;
 
   BOL_NUMBER;
 

@@ -11,6 +11,7 @@ import { TableDemoComponent } from './table-demo/table-demo.component';
 import { ContainerentrytableComponent } from './containerentrytable/containerentrytable.component';
 import { ContainerentryformComponent } from './containerentryform/containerentryform.component';
 import { ContainerbackendtableComponent } from './containerbackendtable/containerbackendtable.component';
+import {ContainerService} from './services/container.service';
 
 @NgModule({
   declarations: [
@@ -24,9 +25,9 @@ import { ContainerbackendtableComponent } from './containerbackendtable/containe
   imports: [
     BrowserModule,
     TableModule,
-    HttpClientModule,
+    HttpClientModule
   ],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule,ContainerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

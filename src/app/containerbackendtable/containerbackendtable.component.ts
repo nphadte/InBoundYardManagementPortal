@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ContainerEntry} from '../domain/containerentry';
 import {ContainerService} from '../services/container.service';
+import {error} from '@angular/compiler/src/util';
+import {errorComparator} from 'tslint/lib/verify/lintError';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-containerbackendtable',
@@ -9,32 +12,34 @@ import {ContainerService} from '../services/container.service';
 })
 export class ContainerbackendtableComponent implements OnInit {
 
-  ContainerEntries:  ContainerEntry[];
-  cols:  any[];
+  ContainerEntries: ContainerEntry[];
+  cols: any[];
 
-  constructor( private  containerService : ContainerService ) { }
+  constructor( private  containerService: ContainerService ) { }
 
+  /*
+    http://localhost:8090/api/allcontainers
+   */
   ngOnInit() {
-    this.containerService.getInitialContainers().then(Containers => this.ContainerEntries = Containers );
+
+    this.containerService.getDBContainers()
+      .subscribe( data  => {
+        this.ContainerEntries = data;
+      });
 
     this.cols = [
-      { field: 'CONTAINER_IDENTIFIER', header:  'CONTAINER_IDENTIFIER'},
-      { field: 'WAREHOUSE_LOC', header:  'CONTAINER_LOCATION'},
-      { field: 'BOL_NUMBER', header:  'BOL_NUMBER'},
-      { field: 'CONTAINER_NUMBER', header:  'CONTAINER_#'},
-      { field: 'CONTAINER_STATUS', header:  'CONTAINER_STATUS'},
-      { field: 'GATE_NUM', header:  'GATE_NUM'},
-      { field: 'DRAYAGE', header:  'DRAYAGE'},
-      { field: 'CARRIER_NAME', header:  'CARRIER_NAME'},
-      { field: 'LFD_CONTAINER', header:  'LFD_CONTAINER'},
-      { field: 'LFD_CHASIS', header:  'LFD_CHASIS'},
-      { field: 'WH_CHECKED_IN_USER', header:  'WH_ENTRY_USER'},
-      { field: 'WH_CHECKED_IN_DATETIME', header:  'WH_ENTRY_DATETIME'}
-    ]
+      /*{ field: 'id', header:  'ID'},*/
+      { field: 'container_IDENTIFIER', header:  'CONTAINER_IDENTIFIER'},
+      { field: 'container_LOC', header:  'CONTAINER_LOCATION'},
+      { field: 'bol_NUMBER', header:  'BOL_NUMBER'},
+      { field: 'container_NUMBER', header:  'CONTAINER_#'},
+      { field: 'container_STATUS', header:  'CONTAINER_STATUS'},
+      { field: 'drayage', header:  'DRAYAGE'},
+      { field: 'carrier_NAME', header:  'CARRIER_NAME'},
+      { field: 'lfd_CONTAINER', header:  'LFD_CONTAINER'},
+      { field: 'lfd_CHASIS', header:  'LFD_CHASIS'},
+      { field: 'wh_CHECKED_IN_USER', header:  'WH_ENTRY_USER'},
+      { field: 'wh_CHECKED_IN_DATETIME', header:  'WH_ENTRY_DATETIME'}
+    ];
   }
-
-
 }
-
-
-

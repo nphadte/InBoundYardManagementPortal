@@ -15,9 +15,13 @@ export class ContainerentrytableComponent implements OnInit {
   constructor( private  containerService : ContainerService) { }
 
   ngOnInit() {
-    this.containerService.getInitialContainers().then(Containers => this.ContainerEntries = Containers );
 
-    this.cols = [
+    //this.containerService.getDBContainers( containerEntries => this.ContainerEntries = containerEntries );
+    this.containerService.getDBContainers().subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    );
+      this.cols = [
       { field: 'CONTAINER_IDENTIFIER', header:  'CONTAINER_IDTY'},
       { field: 'WAREHOUSE_LOC', header:  'WAREHOUSE_LOC'},
       { field: 'BOL_NUMBER', header:  'BOL_NUMBER'},
