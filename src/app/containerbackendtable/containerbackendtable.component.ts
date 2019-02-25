@@ -17,9 +17,6 @@ export class ContainerbackendtableComponent implements OnInit {
 
   constructor( private  containerService: ContainerService ) { }
 
-  /*
-    http://localhost:8090/api/allcontainers
-   */
   ngOnInit() {
 
     this.containerService.getDBContainers()
@@ -30,16 +27,16 @@ export class ContainerbackendtableComponent implements OnInit {
     this.cols = [
       /*{ field: 'id', header:  'ID'},*/
       { field: 'container_IDENTIFIER', header:  'CONTAINER_IDENTIFIER'},
-      { field: 'container_LOC', header:  'CONTAINER_LOCATION'},
-      { field: 'bol_NUMBER', header:  'BOL_NUMBER'},
       { field: 'container_NUMBER', header:  'CONTAINER_#'},
+      { field: 'bol_NUMBER', header:  'BOL_NUMBER'},
+      { field: 'container_LOC', header:  'CONTAINER_LOCATION'},
       { field: 'container_STATUS', header:  'CONTAINER_STATUS'},
-      { field: 'drayage', header:  'DRAYAGE'},
       { field: 'carrier_NAME', header:  'CARRIER_NAME'},
+      { field: 'drayage', header:  'DRAYAGE'},
       { field: 'lfd_CONTAINER', header:  'LFD_CONTAINER'},
       { field: 'lfd_CHASIS', header:  'LFD_CHASIS'},
-      { field: 'wh_CHECKED_IN_USER', header:  'WH_ENTRY_USER'},
-      { field: 'wh_CHECKED_IN_DATETIME', header:  'WH_ENTRY_DATETIME'}
+      { field: 'wh_CHECKED_IN_USER', header:  'LAST_UPDATED_USER'},
+      { field: 'wh_CHECKED_IN_DATETIME', header:  'LAST_UPDATED_DATETIME'}
     ];
   }
 }
